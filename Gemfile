@@ -4,8 +4,8 @@ source "http://rubygems.org"
 gemspec
 
 # Track Rails master
-gem "rails", :git => 'https://github.com/rails/rails.git'
-gem "sprockets-rails", :git => "git://github.com/rails/sprockets-rails.git"
+gem "rails", '3.0.12'
+gem "sprockets-rails", :git => "git://github.com/os0x/sprockets-rails.git", :ref => '36b6eb5dcf43ea5567b78ca3a7c532e5ef3fdfb6'
 
 gem "sqlite3"
 

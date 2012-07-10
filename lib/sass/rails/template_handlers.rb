@@ -20,7 +20,11 @@ module Sass::Rails
     end
 
     def source_path(path, ext)
-      context.asset_paths.compute_source_path(path, ::Rails.application.config.assets.prefix, ext)
+      if defined?(context.asset_paths)
+        context.asset_paths.compute_source_path(path, ::Rails.application.config.assets.prefix, ext)
+      else
+        path
+      end
     end
 
     def public_path(path, scope = nil, options = {})
@@ -72,7 +76,8 @@ module Sass::Rails
     end
 
     def sass_options_from_rails(scope)
-      scope.environment.context_class.sass_config
+      #scope.environment.context_class.sass_config
+      Rails::application.config.sass
     end
 
     def sass_options(scope)
